@@ -9,7 +9,7 @@ def roll_dice(amount: int=2) -> list[int]:
         random_roll: int = random.randint(1, 6)
         rolls.append(random_roll)
 
-    return rolls
+    return rolls,  sum(rolls)
 
 def main():
     while True:
@@ -20,7 +20,10 @@ def main():
                 print('Thanks for playing')
                 break
             
-            print(*roll_dice(int(user_input)), sep=", ") #Seperate using ,
+            roll, total = roll_dice(int(user_input)) 
+            print("Rolls:", end=" ")
+            print(*roll, sep=", ")
+            print("Total:", total)
 
         except ValueError:
             print('Please enter a valid number')
