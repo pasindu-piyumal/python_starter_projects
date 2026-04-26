@@ -27,7 +27,11 @@ def run_game():
             print('You got it')
             break
 
-        guess: str = input(f'Enter a letter: ')
+        guess: str = input(f'Enter a letter: ').lower()
+
+        if len(guess) != 1 or not guess.isalpha():
+            print('Enter only single letter (a-z)')
+            continue
 
         if guess in guessed:
             print(f'You already used: "{guess}". Please try another letter')
